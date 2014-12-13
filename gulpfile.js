@@ -17,7 +17,7 @@ gulp.task('browser-sync', function() {
 
 var twig = require('gulp-twig');
 gulp.task('twig', function(){
-    return gulp.src('dev/views/**/*.twig')
+    return gulp.src('dev/views/*.twig')
                .pipe(twig({debugInfo: true}))
                .pipe(gulp.dest('prod'))
                .pipe(reload({stream: true}));
@@ -58,6 +58,6 @@ gulp.task('clean:sass', function (cb) {
 
 gulp.task('default', ['browserify-scripts', 'sass', 'twig', 'browser-sync'], function () {
     gulp.watch("dev/assets/stylesheets/**/*.scss", ['clean:sass', 'sass']);
-    gulp.watch("dev/views/*.twig", ['twig']);
+    gulp.watch("dev/views/**/*.twig", ['twig']);
     gulp.watch("dev/assets/scripts/**/*.js", ['browserify-scripts']);
 });

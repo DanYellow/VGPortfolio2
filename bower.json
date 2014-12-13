@@ -1,0 +1,22 @@
+{
+  "name": "VGPortfolio",
+  "version": "0.0.0",
+  "homepage": "https://github.com/DanYellow/VGPortfolio",
+  "authors": [
+    "Jean-Louis Danielo <jeanlouis.danielo@sfr.fr>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "modernizr": "~2.8.3",
+    "PreloadJS": "*"
+  }
+}

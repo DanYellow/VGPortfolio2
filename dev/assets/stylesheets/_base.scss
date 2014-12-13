@@ -1,0 +1,25 @@
+a {
+    text-decoration: none;
+}
+
+a img {
+    border: none;
+}
+
+html {
+    width: 100%;
+    background-color: white;
+    font-family: "Myriad Pro", "Helvetica", "Arial", "sans-serif";
+}
+
+body {
+    @media(max-width: 1024px) {
+        padding: 0 15px;
+    }
+}
+
+#wrapper {
+    max-width: 1080px;
+    background-color: transparent;
+    margin: 0 auto;
+}
