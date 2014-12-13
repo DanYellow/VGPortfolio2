@@ -6,10 +6,12 @@ Backbone.$ = $;
 var ProjectViewClass            = require('./project/ProjectView');
 var projectView;
 
+var ProjectsListItemClass            = require('./projectsListItem/ProjectsListItem');
+var ProjectsListItem;
+
 var ProjectsListCollectionClass = require('./projectsList/ProjectsListCollection');
 var projectsListCollection = new ProjectsListCollectionClass();
 
-console.log(projectsListCollection)
 
 module.exports = Backbone.Router.extend({
 
@@ -22,7 +24,15 @@ module.exports = Backbone.Router.extend({
   },
 
   projects: function(){
-    console.log('init');
+    projectsListCollection.fetch({
+      success: function (datas) {
+        ProjectsListItem = new ProjectsListItemClass({ el: $('#portfolio #projects-list'), model: datas.get(0) });
+        for (var i = 0; i < datas.length; i++) {
+
+        };
+
+      }
+    });
   },
 
   project: function(id) {
