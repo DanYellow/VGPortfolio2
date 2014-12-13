@@ -1,0 +1,47 @@
+var gulp        = require('gulp');
+var browserSync = require('browser-sync');
+var reload      = browserSync.reload;
+
+// Static server.
+gulp.task('browser-sync', function() {
+  browserSync({
+    server: {
+      baseDir: './prod/',
+      index: "index.html",
+      proxy: "victor.gouteyron",
+      logLevel: "debug",
+      logPrefix: "Project : "
+    }
+  });
+});
+
+var twig = require('gulp-twig');
+gulp.task('twig', function(){
+    return gulp.src('dev/views/*.twig')
+               .pipe(twig())
+               .pipe(gulp.dest('prod'))
+               .pipe(reload({stream:true}));
+});
+
+
+var sass = require('gulp-sass');
+gulp.task('sass', function () {
+    return gulp.src('dev/assets/stylesheets/**/*.scss')
+               .pipe(sass({debugInfo: true}))
+               .pipe(gulp.dest('prod/assets/stylesheets'))
+               .pipe(reload({stream:true}));
+});
+
+var del = require('del');
+gulp.task('clean:sass', function (cb) {
+  del([
+    'prod/assets/stylesheets'
+  ], cb);
+});
+
+
+
+gulp.task('default', ['sass', 'twig', 'browser-sync'], function () {
+    gulp.watch("dev/assets/stylesheets/**/*.scss", ['clean:sass', 'sass']);
+    gulp.watch("dev/views/*.twig", ['twig']);
+});
