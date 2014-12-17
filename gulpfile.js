@@ -43,7 +43,8 @@ gulp.task('browserify-scripts', function() {
     })
     .bundle().on('error', console.log)
     .pipe(source('main.js'))
-    .pipe(gulp.dest('prod/assets/scripts/'));
+    .pipe(gulp.dest('prod/assets/scripts/'))
+    .pipe(reload({stream: true}));
 });
 
 
