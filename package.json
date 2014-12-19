@@ -1,7 +1,7 @@
 {
   "name": "application-name",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "scripts": {
     "start": "node app.js"
   },
@@ -11,14 +11,14 @@
   "browser": {
     "PreloadJS": "./bower_components/PreloadJS/lib/preloadjs-0.4.1.min.js"
   },
-  "browserify-shim": {
-    "PreloadJS": "createjs"
-  },
   "browserify": {
     "transform": [
       "browserify-shim",
-      "hbsify"
+      "hbsfy"
     ]
+  },
+  "browserify-shim": {
+    "PreloadJS": "createjs"
   },
   "devDependencies": {
     "gulp": "~3.8.10",
@@ -27,6 +27,7 @@
     "gulp-twig": "0.0.4",
     "gulp-util": "~3.0.1",
     "hbsify": "~1.0.1",
+    "hbsfy": "^1.3.2",
     "jquery": "~1.11",
     "backbone": "~1.1.2",
     "browserify": "~6.1.0",

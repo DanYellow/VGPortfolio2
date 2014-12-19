@@ -11,7 +11,8 @@ gulp.task('browser-sync', function() {
       proxy: "victor.gouteyron",
       logLevel: "debug",
       logPrefix: "Project : "
-    }
+    },
+    port: 8080
   });
 });
 
@@ -38,8 +39,9 @@ gulp.task('browserify-scripts', function() {
     var source     = require('vinyl-source-stream');
 
     browserify({
-        entries: ['./dev/assets/scripts/main.js'],
-        extensions: ['.hbs']
+        entries: ['./dev/assets/scripts/node_modules/main.js'],
+        extensions: ['.hbs'],
+        transform: ['hbsfy']
     })
     .bundle().on('error', console.log)
     .pipe(source('main.js'))
