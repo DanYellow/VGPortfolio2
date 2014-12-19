@@ -41,7 +41,7 @@ gulp.task('browserify-scripts', function() {
     browserify({
         entries: ['./dev/assets/scripts/node_modules/main.js'],
         extensions: ['.hbs'],
-        transform: ['hbsfy']
+        transform: ['hbsify']
     })
     .bundle().on('error', console.log)
     .pipe(source('main.js'))
@@ -59,8 +59,8 @@ gulp.task('clean:sass', function (cb) {
 
 
 
-gulp.task('default', ['browserify-scripts', 'sass', 'twig', 'browser-sync'], function () {
+gulp.task('default', ['sass', 'twig', 'browser-sync'], function () {
     gulp.watch("dev/assets/stylesheets/**/*.scss", ['clean:sass', 'sass']);
     gulp.watch("dev/views/**/*.twig", ['twig']);
-    gulp.watch("dev/assets/scripts/**/*.js", ['browserify-scripts']);
+    //gulp.watch(["dev/assets/scripts/**/*.js", "dev/assets/scripts/**/*.hbs"], ['browserify-scripts']);
 });

@@ -1,12 +1,23 @@
 header#vgnav {
 	max-width: 300px;
 	margin: 0 auto;
+	img.logo {
+		display: block;
+		margin: 10px auto 30px;
+	}
 	#description {
 		text-align: center;
 		font-size: 16px;
 		line-height: 28px;
 		margin-bottom: 32px;
 		letter-spacing: .07em;
+
+		a {
+			color: #313131;
+			&:visited{
+				color: #313131;
+			}
+		}
 	}
 
 	nav {
